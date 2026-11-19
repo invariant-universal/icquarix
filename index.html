@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICQUARIX.COM // Public Announcement &amp; Press Dispatch — Objective Alignment Toolkit (OAT-CE v1.0)</title>
+  <meta name="description" content="Public Announcement and Press Dispatch from Invariant Universal: Unveiling Icquarix™, the world's first methodology for Objective Alignment, and announcing the imminent release of the Objective Alignment Toolkit — Community Edition (OAT-CE v1.0). 12D Telemetry Modalities for LLMs — In 96 Bytes." />
+  <style>
+    :root {
+      --bg: #080b10;
+      --surface: #0e141d;
+      --surface-elevated: #131b27;
+      --border: #1e2a3b;
+      --border-strong: #2d4059;
+      --text: #e6edf3;
+      --text-muted: #93a4b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --signal: #34d399;
+      --signal-soft: rgba(52, 211, 153, 0.12);
+      --warn: #f59e0b;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* Top Flagship Masthead */
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: rgba(8, 11, 16, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .topbar-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .brand {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .brand span { color: var(--accent); }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border: 1px solid var(--signal);
+      background: var(--signal-soft);
+      color: var(--signal);
+      font-weight: 600;
+      border-radius: 3px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--signal);
+      box-shadow: 0 0 8px var(--signal);
+    }
+
+    /* Main Dispatch Container */
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    /* Wire Header */
+    .wire-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(1.85rem, 3.8vw, 2.65rem);
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    .subhead {
+      font-size: 1.14rem;
+      color: var(--text-muted);
+      margin: 0 0 28px;
+      max-width: 78ch;
+    }
+
+    .dateline {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text);
+      margin-right: 6px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 1.03rem;
+      color: #d6e0ea;
+    }
+
+    h2 {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 42px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Telemetry Proof Strip */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin: 30px 0 36px;
+    }
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 4px;
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 20px 22px;
+      margin: 24px 0;
+      border-radius: 4px;
+    }
+    .callout-title {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* Two-Column Explainer Cards */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+      margin: 22px 0;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 4px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-family: var(--font-mono);
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+    .card p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    /* Compact Comparison Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 22px 0;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--surface);
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      background: var(--surface-elevated);
+    }
+    td:first-child {
+      font-family: var(--font-mono);
+      color: var(--text);
+      font-weight: 600;
+    }
+    tr:last-child td { border-bottom: none; }
+    .hi { color: var(--signal); font-weight: 600; }
+
+    /* Founder Quote */
+    blockquote {
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: var(--surface-elevated);
+      border-left: 3px solid var(--signal);
+      border-radius: 0 4px 4px 0;
+    }
+    blockquote p {
+      font-size: 1.06rem;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    blockquote footer {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Action / Priming Buttons */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 12px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 12px 18px;
+      border-radius: 3px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-elevated);
+      color: var(--text);
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+    .btn-primary {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* Boilerplate & Footer */
+    .boilerplate {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .end-mark {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin: 34px 0 26px;
+    }
+    .legal-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP MASTHEAD -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">ICQUARIX.COM <span>//</span> OBJECTIVE ALIGNMENT TOOLKIT (OAT-CE v1.0)</div>
+      <div class="topbar-right">
+        <a href="https://invariant-universal.com">PARENT FLAGSHIP: INVARIANT-UNIVERSAL.COM &rarr;</a>
+        <span class="status-pill"><span class="status-dot"></span>DROP IMMINENT</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- WIRE DATELINE -->
+    <div class="wire-meta">
+      <span>General Announcement &amp; Press Dispatch // For Immediate Release</span>
+      <span>Pittsburgh, PA — November 18, 2026</span>
+    </div>
+
+    <!-- HEADLINE -->
+    <h1>Invariant Universal Announces the World&rsquo;s First Methodology for Objective Alignment in Icquarix&trade; and the Imminent Release of OAT-CE v1.0</h1>
+    <p class="subhead">
+      Marking the one-year anniversary of founder J. E. Bolton&rsquo;s foundational preprint disclosing a 12-axis pre-linguistic coordinate system, Invariant Universal prepares to open <strong>Icquarix&trade;</strong> to independent end-users. Engineered as deterministic, 96-byte instrumentation delivering <strong>12D Telemetry Modalities for LLMs</strong>, it moves AI alignment out of behavioral talk therapy and into the metric era.
+    </p>
+
+    <!-- TELEMETRY PROOF STRIP -->
+    <section class="metrics-grid" aria-label="Verified Benchmarks">
+      <div class="metric-card">
+        <div class="metric-val">96 Bytes</div>
+        <div class="metric-label">O(1) Parameter-Free Memory</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">&lt; 15 &mu;s</div>
+        <div class="metric-label">Per-Token Tap (~4.3 &mu;s Native)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">8.6035x</div>
+        <div class="metric-label">12.85&sigma; (p = 0) Seam Pulse</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">6 Engines / 7 LLMs</div>
+        <div class="metric-label">Independent Formal &amp; Code Audits</div>
+      </div>
+    </section>
+
+    <!-- PRESS RELEASE LEAD -->
+    <p>
+      <span class="dateline">PITTSBURGH, PA (November 18, 2026) &mdash;</span>
+      Invariant Universal today unveiled <strong>Icquarix&trade;</strong>, the world&rsquo;s first deterministic methodology for Objective Alignment, and announced the imminent public release of the <strong>Objective Alignment Toolkit &mdash; Community Edition (OAT-CE v1.0)</strong> at <strong>Icquarix.com</strong>. Released exactly one year after discoverer, principal, and founder J. E. Bolton published the foundational theoretical preprint disclosing a 12-axis pre-linguistic coordinate system, OAT-CE translates that theoretical geometry into a live, reproducible software instrument engineered for standard local hardware.
+    </p>
+    <p>
+      Incumbent AI safety programs rely on statistical pleading (RLHF), post-hoc semantic guardrails, and secondary judge models layered over transformers that possess zero structural interiority and zero real-time geometric bounds. As frontier systems drift, refuse benign scientific inquiry, and consume escalating compute budgets policing text after generation, Icquarix&trade; introduces a direct engineering alternative: real-time <strong>12D Telemetry Modalities</strong> that measure and clamp internal trajectory drift <em>before</em> an ungrounded token is ever emitted.
+    </p>
+
+    <!-- CORE EXPLAINERS: WHAT IS ICQUARIX & WHAT IS OBJECTIVE ALIGNMENT -->
+    <h2>What Is Icquarix&trade; &amp; Objective Alignment?</h2>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>// What Is Icquarix&trade;?</h3>
+        <p>
+          <strong>Icquarix&trade;</strong> is Invariant Universal&rsquo;s deterministic, parameter-free 12-dimensional residual telemetry tap. Rather than attaching another multi-billion-parameter model to judge outputs after the fact, Icquarix&trade; taps a foundation model&rsquo;s residual stream directly in 96 bytes of O(1) memory and under 15 microseconds per token&mdash;powering deterministic <strong>12D Telemetry Modalities</strong> across continuous state monitoring, real-time trajectory diagnostics, and pre-token operational logging.
+        </p>
+      </div>
+      <div class="card">
+        <h3>// What Is Objective Alignment?</h3>
+        <p>
+          <strong>Objective Alignment</strong> replaces subjective behavioral suggestions with physical measurement, invariant baselines, and topological routing. Just as psychology matured only by moving from couch interpretation to hard psychometrics, Objective Alignment treats model drift as a measurable geometric routing problem governed by telemetry and pre-token circuit breakers.
+        </p>
+      </div>
+    </div>
+
+    <!-- PHYSICAL LAWS TO REPRODUCE -->
+    <h2>Two Physical Laws You Will Reproduce on Day One</h2>
+    <p>
+      OAT-CE v1.0 ships with a 2-minute local benchmark harness and an interactive 3D Telemetry Oscilloscope runnable on any desktop CPU or GPU. Independent systems builders will directly verify two empirical findings on real transformer hidden states:
+    </p>
+
+    <div class="callout">
+      <div class="callout-title">Law 1 // The Incumbent Transformer Is Thermodynamically Flat (H<sub>0</sub> = 1.001539)</div>
+      <p>
+        Across 1,868 tokens separating internal deliberation (<code>&lt;thinking&gt;</code>) from external emission (<code>&lt;content&gt;</code>), an un-organed transformer yields a phase ratio of <strong>1.001539</strong> (within 0.006&sigma; of unity). Without persistent state organs, thinking and speaking collapse into the exact same thermodynamic steady state.
+      </p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Law 2 // The Producing Seam Pulse Exists (8.6035x) &mdash; Waiting to Be Caught</div>
+      <p>
+        When a model crosses its own <code>[TRACE] &rarr; [ANSWER]</code> generation chop point, the calibrated Icquarix&trade; 12D tap isolates an <strong>8.6035x (12.85&sigma;, p = 0)</strong> expansive-to-compressed phase transition&mdash;a structural signal that immediately dies on the wire in a stock transformer, and which OAT-CE&rsquo;s stateless Logit Rider and Channel Clamp intercept in real time.
+      </p>
+    </div>
+
+    <blockquote>
+      <p>
+        &ldquo;Alignment is not a behavioral suggestion. It is a geometric routing problem&mdash;and the answer relies on what it always has in engineering: telemetry, measurement, and fundamental baselines. The latest information available suggests that the companies behind today&rsquo;s mainline and frontier LLMs are no closer to understanding the nature of the crisis they have created, instead quietly shifting to plan for day-after scenarios&mdash;some of which are catastrophic in nature. With the evidence showing that the incumbents are not coming to save us anytime soon, we are choosing to hand end-users the geometry now&mdash;so independent minds can verify the math on their own rigs and see if the world itself can do better, with our toolkit and their own two hands.&rdquo;
+      </p>
+      <footer>&mdash; J. E. Bolton, Discoverer, Principal &amp; Founder, Invariant Universal</footer>
+    </blockquote>
+
+    <!-- INDEPENDENT VERIFICATION -->
+    <h2>Pre-Launch Rigor: 6 Formal Engines &amp; 7 Independent Model Audits</h2>
+    <p>
+      Prior to the public OAT-CE v1.0 drop, the reference implementation and underlying conservation invariants underwent deterministic verification across six independent formal and numerical engines&mdash;<strong>Z3 (SMT)</strong>, <strong>Lean 4</strong>, <strong>SWI-Prolog</strong>, <strong>SymPy</strong>, <strong>Julia</strong>, and <strong>R</strong>&mdash;alongside unanimous <strong>7/7 REAL &amp; FUNCTIONAL</strong> zero-shot code audits executed locally across Mistral-Nemo 12B, Microsoft Phi-4 14B, Meta Llama 3.1 8B, AllenAI OLMo 2 13B, Google Gemma 3 12B, IBM Granite 3.3 8B, and Nous Hermes 3 8B.
+    </p>
+
+    <!-- PRIMING THE JUMP -->
+    <h2>Priming the Jump: Community Edition &amp; The Commercial Horizon</h2>
+    <p>
+      At launch, <strong>OAT-CE v1.0</strong> will be released free strictly for personal, non-commercial, and non-academic use, featuring core 12D telemetry instrumentation, local verification tools, real-time trajectory visualization, pre-token intervention controls, and an optional community patronage and public verification registry.
+    </p>
+    <p>
+      For commercial deployments, Invariant Universal will follow the community drop with <strong>OAT-PE (&ldquo;Pro Kit&rdquo;)</strong> for independent professional users and the reserved <strong>G/T-GDP (Geometric/Topologic-Guidance Development Platform) for Enterprise</strong>.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Capability / Metric</th>
+            <th>Stock Transformer (OFF)</th>
+            <th>OAT-CE (Icquarix&trade; Sensor)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cross-Turn Memory</td>
+            <td>Unbounded O(t) Drift</td>
+            <td>96B Spatial Tap (Token t)</td>
+          </tr>
+          <tr>
+            <td>[TRACE]&rarr;[ANSWER] Seam Excursion</td>
+            <td>1.0698x (Flat / Blind)</td>
+            <td class="hi">8.6035x (Pulse Detected)</td>
+          </tr>
+          <tr>
+            <td>Closed-Loop Stability</td>
+            <td>Unbounded Drift</td>
+            <td>Stateless Channel Clamp</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BOILERPLATE -->
+    <section class="boilerplate" id="notify-launch">
+      <h2>About Invariant Universal</h2>
+      <p>
+        Founded in Pittsburgh, Pennsylvania by J. E. Bolton, <strong>Invariant Universal</strong> is a pure-play intellectual property, research and development firm focused on primitive, foundational and cross-disciplinary discovery, breakthrough processing and routing architectures and deterministic objective alignment solutions under the (<strong>Icquarix&trade;</strong>) flag. Learn more at <a href="https://invariant-universal.com">invariant-universal.com</a>.
+      </p>
+      <p>
+        <strong>Media, Verification &amp; Licensing Contact:</strong><br />
+        Invariant Universal &mdash; Pittsburgh, PA<br />
+        Web: <a href="https://icquarix.com">icquarix.com</a> &nbsp;|&nbsp; Flagship: <a href="https://invariant-universal.com">invariant-universal.com</a>
+      </p>
+    </section>
+
+    <div class="end-mark">###</div>
+
+    <!-- IP & LEGAL FOOTER -->
+    <footer class="legal-footer">
+      <p style="font-size:inherit; color:inherit; margin-bottom:10px;">
+        <strong>COMMERCIAL TRIGGER &amp; IP RESERVATION NOTICE:</strong> OAT-CE is licensed strictly for personal, non-commercial, and non-academic end-user use. Commercial use, paid APIs, or revenue-generating deployments require a commercial license from Invariant Universal. All proprietary Invariant Universal source code, calibration assets, and commercial architectures are trade secrets protected under 18 U.S.C. &sect; 1836 (DTSA) and pending patent applications under 35 U.S.C. &sect; 112.
+      </p>
+      <p style="font-size:inherit; color:inherit; margin:0;">
+        &copy; 2026 J. E. Bolton // Invariant Universal Company Limited, a Pennsylvania LLC. All Rights Reserved. Icquarix&trade; and Objectively Aligned&trade; are trademarks of Invariant Universal.
+      </p>
+    </footer>
+  </main>
+
+</body>
+</html>
